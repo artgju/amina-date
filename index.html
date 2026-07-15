@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#080616">
+  <meta name="description" content="Eine geheime Nachricht für Amina.">
+  <title>Nur für Amina ✦</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="aurora aurora-one" aria-hidden="true"></div>
+  <div class="aurora aurora-two" aria-hidden="true"></div>
+  <canvas id="stars" aria-hidden="true"></canvas>
+
+  <main id="experience">
+    <section class="scene active" data-scene="0" aria-labelledby="intro-title">
+      <div class="eyebrow"><span class="pulse-dot"></span> Verschlüsselte Übertragung</div>
+      <div class="orb-wrap">
+        <div class="orbit orbit-one"><i></i></div>
+        <div class="orbit orbit-two"><i></i></div>
+        <button class="orb" id="unlock" aria-label="Nachricht für Amina öffnen">
+          <span class="orb-glow"></span>
+          <span class="lock-mark">A</span>
+        </button>
+      </div>
+      <p class="micro">IDENTITÄT ERKANNT</p>
+      <h1 id="intro-title">Für <em>Amina</em></h1>
+      <p class="lead">Eine Nachricht aus einer möglichen Zukunft wartet auf dich.</p>
+      <button class="primary" data-next>Nachricht entschlüsseln <span>→</span></button>
+      <p class="hint">Ton an · am besten mit etwas Neugier</p>
+    </section>
+
+    <section class="scene" data-scene="1" aria-labelledby="message-title">
+      <div class="chapter">01 <span></span> DIE NACHRICHT</div>
+      <div class="glass-card transmission">
+        <div class="signal"><span></span><span></span><span></span><span></span><span></span></div>
+        <p class="type-label">ABSENDER: VURAL · ZEITPUNKT: BALD</p>
+        <h2 id="message-title">Manche Begegnungen verdienen mehr als eine normale Nachricht.</h2>
+        <p>Also habe ich dir keine geschrieben. Ich habe dir eine kleine Welt gebaut.</p>
+        <p>In dieser Zukunft gibt es einen Abend, an den wir beide noch lange denken. Aber bevor ich dir mehr verrate, musst du den Weg dorthin wählen.</p>
+      </div>
+      <button class="primary" data-next>Die Zukunft betreten <span>→</span></button>
+    </section>
+
+    <section class="scene" data-scene="2" aria-labelledby="choice-one-title">
+      <div class="chapter">02 <span></span> ERSTE ENTSCHEIDUNG</div>
+      <h2 id="choice-one-title">Welche Energie soll unser Abend haben?</h2>
+      <p class="lead small">Wähle intuitiv. Es gibt keine falsche Antwort.</p>
+      <div class="choices" role="group" aria-label="Stimmung auswählen">
+        <button class="choice" data-choice="moon" data-value="Ein Abend unter Lichtern">
+          <span class="choice-icon">☾</span>
+          <span><strong>Unter Lichtern</strong><small>Gespräche, Atmosphäre und die Zeit vergessen</small></span>
+          <b>→</b>
+        </button>
+        <button class="choice" data-choice="spark" data-value="Eine echte Überraschung">
+          <span class="choice-icon">✦</span>
+          <span><strong>Überrasch mich</strong><small>Kein Plan, keine Spoiler – einfach vertrauen</small></span>
+          <b>→</b>
+        </button>
+        <button class="choice" data-choice="sun" data-value="Ein warmer Sonnenuntergang">
+          <span class="choice-icon">◉</span>
+          <span><strong>Goldene Stunde</strong><small>Sonnenuntergang, Leichtigkeit und etwas Schönes</small></span>
+          <b>→</b>
+        </button>
+      </div>
+    </section>
+
+    <section class="scene" data-scene="3" aria-labelledby="analysis-title">
+      <div class="chapter">03 <span></span> ZUKUNFTSANALYSE</div>
+      <h2 id="analysis-title">Deine Auswahl verändert die Geschichte …</h2>
+      <div class="scanner glass-card">
+        <div class="scan-line"></div>
+        <div class="metric"><span>Neugier</span><div><i style="--score:96%"></i></div><b>96%</b></div>
+        <div class="metric"><span>Abenteuer</span><div><i style="--score:91%"></i></div><b>91%</b></div>
+        <div class="metric"><span>Chemie</span><div><i style="--score:99%"></i></div><b>99%</b></div>
+        <div class="result-line"><span>✦</span><p id="future-result">Zukunftspfad wird berechnet</p></div>
+      </div>
+      <p class="system-note">WARNUNG: Beim letzten Wert ist das System kurz überfordert gewesen.</p>
+      <button class="primary" data-next>Ergebnis ansehen <span>→</span></button>
+    </section>
+
+    <section class="scene" data-scene="4" aria-labelledby="trust-title">
+      <div class="chapter">04 <span></span> LETZTE FRAGE</div>
+      <div class="question-mark">?</div>
+      <h2 id="trust-title">Vertraust du Vural genug für ein Date mit einer kleinen Überraschung?</h2>
+      <div class="trust-actions">
+        <button class="primary wide" id="trustYes">Ja, tue ich <span>♥</span></button>
+        <button class="secondary wide" id="convince">Überzeuge mich noch ein bisschen</button>
+      </div>
+      <div class="convince-box" id="convinceBox" aria-live="polite">
+        <span>GEHEIMES ARGUMENT #1</span>
+        <p>Weil das beste Date vielleicht genau das ist, dessen Geschichte noch niemand kennt.</p>
+      </div>
+    </section>
+
+    <section class="scene final-scene" data-scene="5" aria-labelledby="final-title">
+      <div class="chapter">05 <span></span> MISSION FREIGESCHALTET</div>
+      <div class="final-symbol">✦</div>
+      <p class="micro gold">ZUKUNFTSPFAD BESTÄTIGT</p>
+      <h2 id="final-title">Amina, ich möchte dich auf ein Date einladen.</h2>
+      <p class="final-copy">Den genauen Plan verrate ich dir nach deinem Ja. Nur so viel: Deine Wahl wurde gespeichert – und Vural kümmert sich um den Rest.</p>
+      <div class="ticket glass-card">
+        <div><small>DEINE WAHL</small><strong id="ticketChoice">Eine echte Überraschung</strong></div>
+        <div class="ticket-code">A + V<br><span>∞</span></div>
+      </div>
+      <button class="accept" id="accept">
+        <span class="accept-top">MISSION ANNEHMEN</span>
+        <strong>Ich bin dabei</strong>
+        <i>♥</i>
+      </button>
+      <p class="signature">Von Vural – nur für dich.</p>
+    </section>
+
+    <section class="scene success-scene" data-scene="6" aria-labelledby="success-title">
+      <div class="success-heart"><span>♥</span></div>
+      <p class="micro gold">MISSION ANGENOMMEN</p>
+      <h2 id="success-title">Dann ist es ein Date.</h2>
+      <p class="lead">Die Zukunft sieht gerade ziemlich gut aus, Amina.</p>
+      <button class="primary" id="share">Vural die Antwort schicken <span>↗</span></button>
+      <button class="text-button" id="replay">Erlebnis noch einmal ansehen</button>
+      <p class="share-status" id="shareStatus" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <div class="progress" aria-hidden="true"><i id="progressBar"></i></div>
+  <button class="sound-toggle" id="soundToggle" aria-label="Ton ein- oder ausschalten">♪</button>
+  <div id="confetti" aria-hidden="true"></div>
+  <script src="script.js"></script>
+</body>
+</html>
